@@ -95,7 +95,7 @@ for(i in 1:m){
 ST_data_matr <- Z
 
 #############################################
-#run BayesEATS
+#run the main function "BEATS"
 #############################################
 t1 <- Sys.time()
 Result <- BEATS(scRNA_data_matr, ST_data_matr, spot_matr, n_celltype = 2,
