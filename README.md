@@ -1,6 +1,6 @@
-## BayesEATS: bayesian joint modeling of single-cell expression data and bulk spatial transcriptomic data
+## BayesEATS: an R package for Bayesian joint modeling of single-cell expression data and bulk spatial transcriptomic data
 
-The R package BayesEATS, which is designed for commonly used operating systems including Windows, Linux and Mac OS, implements a method named BEATS to cluster cells, partition spatial spots into different regions, and obtain cellular enrichments of spots simultaneously. The method BEATS is a Bayesian statistical method that can help biologists discover deeper information on the internal structure of tissues by integrating the information of scRNA-seq data and bulk ST data. Package BayesEATS employs a hybrid Markov chain Monte Carlo algorithm to perform posterior inference for BEATS.
+The R package BayesEATS implements the method BEATS proposed by Jinge Yu, Qiuyu Wu and Xiangyu Luo (2020+) that integrates scRNA-seq data and bulk ST data to simultaneously cluster cells, partition spatial spots into different regions, and estimate cellular enrichments of spots in the Bayesian framework. In this package, we employed a hybrid Markov chain Monte Carlo algorithm to perform effcient posterior inference for BEATS model. BayesEATS can be installed in commonly used operating systems including Windows, Linux and Mac OS. 
 
 
 ## Prerequisites and Installation
@@ -15,11 +15,13 @@ devtools::install_github("jingeyu/BayesEATS")
 
 
 ## Example Code
+Following shows an example that generates data and runs the main function "BEATS" in our package. 
 
 ``` {r, eval=FALSE}
 library(BayesEATS)
-
+#############################################
 #Data generation
+#############################################
 set.seed(20200202)
 #cell number
 n <- 100
@@ -92,8 +94,9 @@ for(i in 1:m){
 }
 ST_data_matr <- Z
 
-#run BayesEATS
-library(BayesEATS)
+#############################################
+#run the main function "BEATS"
+#############################################
 t1 <- Sys.time()
 Result <- BEATS(scRNA_data_matr, ST_data_matr, spot_matr, n_celltype = 2,
                 n_region = 3, num_iterations = 5000, print_per_iteration = 500)
@@ -116,7 +119,12 @@ cell_comp
 
 ```
  
- 
+or you can simply run
+``` {r, eval=FALSE}
+library(BayesEATS)
+example(BEATS)
+```
+
 ## Remarks
 * If you have any questions regarding this package, please contact Jinge Yu at yjgruc@ruc.edu.cn or Qiuyu Wu at w.qy@ruc.edu.cn.
 
