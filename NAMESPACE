@@ -1,0 +1,4 @@
+useDynLib(BayesEATS, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+importFrom("stats", "kmeans", "quantile", "rnorm", "var")
+export(BEATS)

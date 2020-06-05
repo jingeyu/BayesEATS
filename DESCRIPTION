@@ -1,0 +1,18 @@
+Package: BayesEATS
+Type: Package
+Title: Bayesian joint modeling of single-cell expression data and bulk
+        spatial transcriptomic data
+Version: 0.99.8
+Date: 2020-06-05
+Author: Qiuyu Wu, Jinge Yu, Xiangyu Luo
+Maintainer: Jinge Yu <yjgruc@ruc.edu.cn>, Qiuyu Wu <w.qy@ruc.edu.cn>
+Description: Single-cell RNA-sequencing (scRNA-seq) excels at exploring cellular heterogeneity but loses spatial information for cells in solid issues, whereas bulk spatial transcriptomics (ST) methods detect expression spatial architecture but lack single-cell resolution. The R package BayesEATS, which is designed for commonly used operating systems including Windows, Linux and Mac OS, implements a method named BEATS to cluster cells, partition spatial spots into different regions, and obtain cellular enrichments of spots simultaneously. The method BEATS is a Bayesian statistical method that can help biologists discover deeper information on the internal structure of tissues by integrating the information of scRNA-seq data and bulk ST data. Package BayesEATS employs a hybrid Markov chain Monte Carlo algorithm to perform posterior inference for BEATS.
+Depends: R (>= 3.6), stats
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.0.3), RcppArmadillo (>= 0.9.850.1.0)
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 7.1.0
+Encoding: UTF-8
+LazyData: true
+NeedsCompilation: yes
+Packaged: 2020-06-05 08:34:55 UTC; WU
