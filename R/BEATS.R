@@ -150,18 +150,48 @@ BEATS <- function(scRNA_data_matr, ST_data_matr, spot_matr, n_celltype, n_region
   ind_zero <- (scRNA_data_matr == 0)
   
   if ((sum(rowMeans(ind_zero) == 1)) > 0 | sum(rowMeans(ST_data_matr == 0) == 1) > 0) {
-    print("Warning: remove the genes having zero expression across spots or cells")
-    ind_gene <- ((rowMeans(ind_zero) < 1) & (rowMeans(ST_data_matr == 0) < 1))
-    scRNA_data_matr <- scRNA_data_matr[ind_gene, ]
-    ST_data_matr <- ST_data_matr[ind_gene, ]
-    ind_zero <- ind_zero[ind_gene, ]
+    stop("Please remove the genes having zero expression across spots or cells!")
   }
   
   G <- dim(scRNA_data_matr)[1]
   n <- dim(scRNA_data_matr)[2]
   m <- dim(ST_data_matr)[2]
   
+  Is_nonneighbor <- function(ind_mat){
+    non_nei <- NULL
+    for(i in 1:nrow(ind_mat)){
+      l <- ind_mat[i, 1]
+      w <- ind_mat[i, 2]
+      nei_tmp <- matrix(c(l,w+1,l,w-1,l+1,w,l-1,w), 4, 2, byrow = T)
+      tmp1 <- rep(0, 4)
+      for(j in 1:4){
+        tmp2 <- rep(0, nrow(ind_mat))
+        for(nr in 1:nrow(ind_mat)){
+          tmp3 <- nei_tmp[j, ] - ind_mat[nr,]
+          if(sum(abs(tmp3)) != 0){
+            tmp2[nr] <- 1
+          }
+        }
+        if(sum(tmp2) == nrow(ind_mat)){
+          tmp1[j] <- 1
+        }
+      }
+      
+      if(sum(tmp1) == 4){
+        # record coordinate of spots do not have neighbor
+        non_nei <- rbind(non_nei, c(l,w))
+      }
+    }
+    return(non_nei)
+  }
+  
+  non_nei <- Is_nonneighbor(spot_matr)
 
+  if(length(non_nei) > 0){
+    print("Spots below do not have neighbors")
+    print(non_nei)
+    stop("Please remove spots that do not have a neighbor")
+  }
   
   #initialize theta_t
   theta_t <- scRNA_data_matr
@@ -233,5 +263,3 @@ BEATS <- function(scRNA_data_matr, ST_data_matr, spot_matr, n_celltype, n_region
                       iter_save = collect_post_sample, iter_print = print_per_iteration, class_print = print_label)
   return(Result)
 }
-
-
