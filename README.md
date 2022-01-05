@@ -6,7 +6,7 @@ A correction in the published paper (https://link.springer.com/article/10.1007%2
 There is a typo in Equation (2) where $\pi_k$ was missed. 
 The corrected Equation (2) is as follows.
 
-![image](https://github.com/jingeyu/BayesEATS/tree/master/images/equation2.png)
+![image](https://raw.githubusercontent.com/jingeyu/BayesEATS/tree/master/images/equation2.png)
 
 Notice that this correction does not influence any downstream algorithm derivation and analysis. Main results and conclusions in the manuscript remain unchanged.
 
