@@ -6,6 +6,7 @@ Notice that there is a typo in equation (2) in the paper, $\pi_k$ was missing. H
 
 ![](https://github.com/jingeyu/BayesEATS/images/equation2.png)
 
+![image](https://github.com/jingeyu/BayesEATS/tree/master/images/equation2.png)
 
 
 ## Prerequisites and Installation
