@@ -3,7 +3,8 @@
 The R package BayesEATS implements the method BEATS proposed by Jinge Yu, Qiuyu Wu and Xiangyu Luo (2020+) that integrates scRNA-seq data and bulk ST data to simultaneously cluster cells, partition spatial spots into different regions, and estimate cellular enrichments of spots in the Bayesian framework. In this package, we employed a hybrid Markov chain Monte Carlo algorithm to perform efficient posterior inference for BEATS model. BayesEATS can be installed in commonly used operating systems including Windows, Linux and Mac OS. 
 
 A correction in the published paper (https://link.springer.com/article/10.1007%2Fs12561-021-09308-4): 
-There is a typo in Equation (2) where $\pi_k$ was missed. The corrected Equation (2) is as follows.
+There is a typo in Equation (2) where $\pi_k$ was missed. 
+The corrected Equation (2) is as follows.
 
 ![image](https://github.com/jingeyu/BayesEATS/tree/master/images/equation2.png)
 
