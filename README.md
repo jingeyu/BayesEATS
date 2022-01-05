@@ -4,7 +4,8 @@ The R package BayesEATS implements the method BEATS proposed by Jinge Yu, Qiuyu 
 
 Notice that there is a typo in equation (2) in the paper, $\pi_k$ was missing. However, there is **no problem** in the derivation of the latter algorithm, and the typo **does not affect** the simulation and real data results. The correct form of equation (2) in the paper is:
 
-![image](https://github.com/jingeyu/BayesEATS/tree/master/images/revise.png)
+![](./images/equation2.png)
+
 
 
 ## Prerequisites and Installation
